@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Form</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Payment Form</h2>
+
+  <form id="paymentForm" onsubmit="return validateForm()">
+    <label for="name">Name on Card:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="cardNumber">Card Number:</label>
+    <input type="text" id="cardNumber" name="cardNumber" required>
+
+    <label for="expiry">Expiration Date (MM/YY):</label>
+    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+
+    <label for="cvv">CVV/CVC:</label>
+    <input type="text" id="cvv" name="cvv" required>
+
+    <label for="amount">Payment Amount:</label>
+    <input type="text" id="amount" name="amount" required>
+
+    <label for="address">Billing Address:</label>
+    <textarea id="address" name="address" required></textarea>
+
+    <button type="submit">Submit Payment</button>
+  </form>
+</div>
+
+<script>
+function validateForm() {
+  var name = document.getElementById('name').value;
+  var cardNumber = document.getElementById('cardNumber').value;
+  var expiry = document.getElementById('expiry').value;
+  var cvv = document.getElementById('cvv').value;
+  var amount = document.getElementById('amount').value;
+  var address = document.getElementById('address').value;
+
+  // Basic validation, you can add more validation rules as needed
+  if (name.trim() == '' || cardNumber.trim() == '' || expiry.trim() == '' || cvv.trim() == '' || amount.trim() == '' || address.trim() == '') {
+    alert('Please fill out all fields.');
+    return false;
+  }
+
+  // Validation for card number, expiry date, CVV, and amount can be added here
+  
+  return true;
+}
+</script>
+
+</body>
+</html>
